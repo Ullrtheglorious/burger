@@ -2,11 +2,13 @@
 $(function () {
     $(".create-burger").on("submit", function (event) {
         event.preventDefault();
-
         var newBurger = {
             name: $("#burger-input").val().trim(),
-            devoured: false
-        };
+            
+        }
+        if (newBurger.name == "") {
+            alert("You need to Enter a Burger");
+        } else {
         $('#burger-input').val('');
         $.ajax("/api/burgers", {
             type: "POST",
@@ -16,7 +18,9 @@ $(function () {
                 location.reload();
             }
             );
+        }
     });
+    
     $(".devour-btn").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");

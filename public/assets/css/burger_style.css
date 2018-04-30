@@ -23,6 +23,8 @@ h1 {
     overflow: auto;
 }
 .panel > .panel-heading {
+    position: sticky;
+    top: 0;
     background-image: none;
     background-color: #424242;
     color: white;
